@@ -1,0 +1,42 @@
+﻿<#@ template language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+@model Portal.Core.ViewModels.<#=Config.Model #>AddModel
+
+@{
+    ViewBag.Title = "ایجاد";
+}
+
+<h2>@ViewBag.Title</h2>
+<hr />
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+<#foreach (var prop in Config.PropertyNames.Where(p=>p !="Id" && p!="TimeCreated")){#>
+  <div class="form-group">
+        @Html.LabelFor(model => model.<#=prop #>, new { @class = "control-label" })
+        @Html.TextBoxFor(model => model.<#=prop #>, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.<#=prop #>, "", new { @class = "text-danger" })
+    </div>
+<#}#>  
+
+<div class="form-group">
+        <button type="submit" class="btn btn-success text-right" style="width:100px">
+            <i class="fa fa-check"></i>
+            ثبت
+        </button>
+        <a href="@Url.Action("index")" class="btn btn-default">
+            برگشت
+            <i class="fa fa-arrow-rigth"></i>
+        </a>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

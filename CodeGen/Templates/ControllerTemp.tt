@@ -1,0 +1,87 @@
+﻿<#@ template language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="CodeGen" #>
+using Portal.Contracts;
+using Portal.Core.ViewModels;
+using Portal.Web.Common;
+using Portal.Web.Common.Filters;
+using System.Web.Mvc;
+using System.Linq;
+
+<#if(!String.IsNullOrEmpty(Config.Area)) { #>
+namespace Portal.Web.Areas.<#=Config.Area #>.Controllers
+<#} else {#>
+namespace Portal.Web.Controllers
+<#} #>
+
+{
+
+    public class <#= Config.Model #>Controller : BaseController
+    {
+        readonly I<#= Config.Model #>Service _<#= Config.ModelLower #>Service;
+        public <#= Config.Model #>Controller(I<#= Config.Model #>Service <#= Config.ModelLower #>Service)
+        {
+            _<#= Config.ModelLower #>Service = <#= Config.ModelLower #>Service;
+        }
+        public virtual ActionResult Index()
+        {
+            var model = _<#= Config.ModelLower #>Service.GetAll();
+            return View(model);
+        }
+
+        [HttpGet]
+        public virtual ActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [UserInfo]
+		[ValidateAntiForgeryToken]
+        public virtual ActionResult Create(<#= Config.Model #>AddModel model)
+        {
+            _<#= Config.ModelLower #>Service.Create(model);
+            return RedirectToAction(nameof(Index));
+        }
+
+        [HttpGet]
+        public virtual ActionResult Details(int id)
+        {
+            var model = _<#= Config.ModelLower #>Service.Get(id);
+            return View(model);
+        }
+
+        [HttpGet]
+        public virtual ActionResult Edit(int id)
+        {
+            var model = _<#= Config.ModelLower #>Service.Get(id);
+            return View(model);
+        }
+
+        [HttpPost]
+		[ValidateAntiForgeryToken]
+        public virtual ActionResult Edit(<#= Config.Model #>ViewModel model)
+        {
+            _<#= Config.ModelLower #>Service.Update(model);
+            return RedirectToAction(nameof(Index));
+        }
+
+        [HttpGet]
+        public virtual ActionResult Delete(int id)
+        {
+            var model = _<#= Config.ModelLower #>Service.Get(id);
+            return View(model);
+        }
+
+        [HttpPost]
+		[ValidateAntiForgeryToken]
+        public virtual ActionResult Delete(<#= Config.Model #>ViewModel model)
+        {
+            _<#= Config.ModelLower #>Service.Delete(model.Id);
+            return RedirectToAction(nameof(Index));
+        }
+    }
+}

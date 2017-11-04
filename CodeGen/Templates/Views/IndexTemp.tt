@@ -1,0 +1,50 @@
+﻿<#@ template language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+@model IEnumerable<Portal.Core.ViewModels.<#=Config.Model #>ViewModel>
+@{
+    ViewBag.Title = "لیست";
+    int i = 1;
+}
+
+<h2>@ViewBag.Title</h2>
+<hr>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>#</th>
+<#foreach (var prop in Config.PropertyNames){#>
+			<th>@Html.DisplayNameFor(m => m.<#=prop #>)</th>
+<#}#>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+          <tr>
+			<td>@i</td>
+<#foreach (var prop in Config.PropertyNames){#>
+			<td>@item.<#=prop #></td>
+<#}#>          
+
+<#if(!String.IsNullOrEmpty(Config.Area)) { #>
+		<td>
+			<a href="@Url.Action(MVC.<#=Config.Area #>.<#=Config.Model #>.Details(item.Id))" class="btn btn-default "><i class="fa fa-file-text-o"></i>نمایش</a>                    
+			<a href="@Url.Action(MVC.<#=Config.Area #>.<#=Config.Model #>.Edit(item.Id))" class="btn btn-primary"><i class="fa fa-edit"></i>ویرایش</a>
+			<a href="@Url.Action(MVC.<#=Config.Area #>.<#=Config.Model #>.Delete(item.Id))" class="btn btn-damger"><i class="fa fa-remove"></i>حذف</a>
+		</td>
+<#} else {#>
+		<td>
+			<a href="@Url.Action(MVC.<#=Config.Model #>.Details(item.Id))" class="btn btn-default "><i class="fa fa-file-text-o"></i>نمایش</a>                    
+			<a href="@Url.Action(MVC.<#=Config.Model #>.Edit(item.Id))" class="btn btn-primary"><i class="fa fa-edit"></i>ویرایش</a>
+			<a href="@Url.Action(MVC.<#=Config.Model #>.Delete(item.Id))" class="btn btn-damger"><i class="fa fa-remove"></i>حذف</a>
+		</td>
+<#} #>
+		</tr> i++;
+}
+    <tbody>
+</table>
