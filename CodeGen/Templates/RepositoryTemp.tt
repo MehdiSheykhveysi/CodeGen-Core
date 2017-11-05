@@ -5,14 +5,13 @@
 <#@ import namespace="System.Collections.Generic" #>
 using Portal.Core.Base;
 using Portal.Core.Models;
-using System.Data.Entity;
 using System.Linq;
 
 namespace Portal.Repository
 {
     public class <#= Config.Model #>Repository : Repository<<#=Config.Model #>>, I<#= Config.Model #>Repository
     {
-        public <#= Config.Model #>Repository(DbContext context) : base(context)
+        public <#= Config.Model #>Repository(PortalDbContext context) : base(context)
         {
         }
     }

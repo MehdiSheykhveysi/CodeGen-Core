@@ -33,15 +33,15 @@
 
 <#if(!String.IsNullOrEmpty(Config.Area)) { #>
 		<td>
-			<a href="@Url.Action(MVC.<#=Config.Area #>.<#=Config.Model #>.Details(item.Id))" class="btn btn-default "><i class="fa fa-file-text-o"></i>نمایش</a>                    
-			<a href="@Url.Action(MVC.<#=Config.Area #>.<#=Config.Model #>.Edit(item.Id))" class="btn btn-primary"><i class="fa fa-edit"></i>ویرایش</a>
-			<a href="@Url.Action(MVC.<#=Config.Area #>.<#=Config.Model #>.Delete(item.Id))" class="btn btn-damger"><i class="fa fa-remove"></i>حذف</a>
+			<a asp-action="details" asp-route-id="@item.Id" asp-controller="<#=Config.Model #>" asp-area="<#=Config.Area #>" class="btn btn-default "><i class="fa fa-file-text-o"></i>نمایش</a>                    
+			<a asp-action="edit" asp-route-id="@item.Id" asp-controller="<#=Config.Model #>" asp-area="<#=Config.Area #>" class="btn btn-primary"><i class="fa fa-edit"></i>ویرایش</a>
+			<a asp-action="delete" asp-route-id="@item.Id" asp-controller="<#=Config.Model #>" asp-area="<#=Config.Area #>" class="btn btn-damger"><i class="fa fa-remove"></i>حذف</a>
 		</td>
 <#} else {#>
 		<td>
-			<a href="@Url.Action(MVC.<#=Config.Model #>.Details(item.Id))" class="btn btn-default "><i class="fa fa-file-text-o"></i>نمایش</a>                    
-			<a href="@Url.Action(MVC.<#=Config.Model #>.Edit(item.Id))" class="btn btn-primary"><i class="fa fa-edit"></i>ویرایش</a>
-			<a href="@Url.Action(MVC.<#=Config.Model #>.Delete(item.Id))" class="btn btn-damger"><i class="fa fa-remove"></i>حذف</a>
+			<a asp-action="details" asp-route-id="@item.Id" asp-controller="<#=Config.Model #>" class="btn btn-default "><i class="fa fa-file-text-o"></i>نمایش</a>                    
+			<a asp-action="edit" asp-route-id="@item.Id" asp-controller="<#=Config.Model #>" class="btn btn-primary"><i class="fa fa-edit"></i>ویرایش</a>
+			<a asp-action="delete" asp-route-id="@item.Id" asp-controller="<#=Config.Model #>"  class="btn btn-damger"><i class="fa fa-remove"></i>حذف</a>
 		</td>
 <#} #>
 		</tr> i++;

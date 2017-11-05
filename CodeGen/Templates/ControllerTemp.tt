@@ -4,11 +4,13 @@
 <#@ import namespace="System.Text" #>
 <#@ import namespace="System.Collections.Generic" #>
 <#@ import namespace="CodeGen" #>
-using Portal.Contracts;
+
+using Microsoft.AspNetCore.Mvc;
 using Portal.Core.ViewModels;
+using Portal.Service;
 using Portal.Web.Common;
+using Portal.Web.Common.Base;
 using Portal.Web.Common.Filters;
-using System.Web.Mvc;
 using System.Linq;
 
 <#if(!String.IsNullOrEmpty(Config.Area)) { #>
@@ -19,21 +21,21 @@ namespace Portal.Web.Controllers
 
 {
 
-    public class <#= Config.Model #>Controller : BaseController
+    public class <#= Config.Model #>Controller : UserControllerBase
     {
         readonly I<#= Config.Model #>Service _<#= Config.ModelLower #>Service;
         public <#= Config.Model #>Controller(I<#= Config.Model #>Service <#= Config.ModelLower #>Service)
         {
             _<#= Config.ModelLower #>Service = <#= Config.ModelLower #>Service;
         }
-        public virtual ActionResult Index()
+        public virtual IActionResult Index()
         {
             var model = _<#= Config.ModelLower #>Service.GetAll();
             return View(model);
         }
 
         [HttpGet]
-        public virtual ActionResult Create()
+        public virtual IActionResult Create()
         {
             return View();
         }
@@ -41,21 +43,21 @@ namespace Portal.Web.Controllers
         [HttpPost]
         [UserInfo]
 		[ValidateAntiForgeryToken]
-        public virtual ActionResult Create(<#= Config.Model #>AddModel model)
+        public virtual IActionResult Create(<#= Config.Model #>AddModel model)
         {
             _<#= Config.ModelLower #>Service.Create(model);
             return RedirectToAction(nameof(Index));
         }
 
         [HttpGet]
-        public virtual ActionResult Details(int id)
+        public virtual IActionResult Details(int id)
         {
             var model = _<#= Config.ModelLower #>Service.Get(id);
             return View(model);
         }
 
         [HttpGet]
-        public virtual ActionResult Edit(int id)
+        public virtual IActionResult Edit(int id)
         {
             var model = _<#= Config.ModelLower #>Service.Get(id);
             return View(model);
@@ -63,14 +65,14 @@ namespace Portal.Web.Controllers
 
         [HttpPost]
 		[ValidateAntiForgeryToken]
-        public virtual ActionResult Edit(<#= Config.Model #>ViewModel model)
+        public virtual IActionResult Edit(<#= Config.Model #>ViewModel model)
         {
             _<#= Config.ModelLower #>Service.Update(model);
             return RedirectToAction(nameof(Index));
         }
 
         [HttpGet]
-        public virtual ActionResult Delete(int id)
+        public virtual IActionResult Delete(int id)
         {
             var model = _<#= Config.ModelLower #>Service.Get(id);
             return View(model);
@@ -78,7 +80,7 @@ namespace Portal.Web.Controllers
 
         [HttpPost]
 		[ValidateAntiForgeryToken]
-        public virtual ActionResult Delete(<#= Config.Model #>ViewModel model)
+        public virtual IActionResult Delete(<#= Config.Model #>ViewModel model)
         {
             _<#= Config.ModelLower #>Service.Delete(model.Id);
             return RedirectToAction(nameof(Index));
