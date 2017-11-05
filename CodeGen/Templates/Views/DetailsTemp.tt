@@ -34,7 +34,7 @@
 
 </table>
 
-<a href="@Url.Action("Index")" class="btn btn-default">
+<a asp-action="index" class="btn btn-default">
 برگشت
 <i class="fa fa-arrow-rigth"></i>
 </a>

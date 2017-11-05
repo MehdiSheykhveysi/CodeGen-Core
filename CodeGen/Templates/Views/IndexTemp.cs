@@ -36,24 +36,32 @@ namespace CodeGen.Templates.Views
             #line default
             #line hidden
             this.Write("ViewModel>\r\n@{\r\n    ViewBag.Title = \"لیست\";\r\n    int i = 1;\r\n}\r\n\r\n<h2>@ViewBag.Ti" +
-                    "tle</h2>\r\n<hr>\r\n\r\n<table class=\"table\">\r\n    <thead>\r\n        <tr>\r\n            " +
-                    "<th>#</th>\r\n");
+                    "tle</h2>\r\n<hr>\r\n\r\n<a asp-action=\"create\" asp-controller=\"");
             
-            #line 19 "E:\Projects\Github\CodeGen-Core\CodeGen-Core\CodeGen\Templates\Views\IndexTemp.tt"
+            #line 15 "E:\Projects\Github\CodeGen-Core\CodeGen-Core\CodeGen\Templates\Views\IndexTemp.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Config.Model));
+            
+            #line default
+            #line hidden
+            this.Write("\" class=\"btn btn-primary \" style=\"width:200px;\"><i class=\"fa fa-plus fa-fw\"></i>ج" +
+                    "دید</a>                    \r\n\r\n<table class=\"table\">\r\n    <thead>\r\n        <tr>\r" +
+                    "\n            <th>#</th>\r\n");
+            
+            #line 21 "E:\Projects\Github\CodeGen-Core\CodeGen-Core\CodeGen\Templates\Views\IndexTemp.tt"
 foreach (var prop in Config.PropertyNames){
             
             #line default
             #line hidden
             this.Write("\t\t\t<th>@Html.DisplayNameFor(m => m.");
             
-            #line 20 "E:\Projects\Github\CodeGen-Core\CodeGen-Core\CodeGen\Templates\Views\IndexTemp.tt"
+            #line 22 "E:\Projects\Github\CodeGen-Core\CodeGen-Core\CodeGen\Templates\Views\IndexTemp.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(prop));
             
             #line default
             #line hidden
             this.Write(")</th>\r\n");
             
-            #line 21 "E:\Projects\Github\CodeGen-Core\CodeGen-Core\CodeGen\Templates\Views\IndexTemp.tt"
+            #line 23 "E:\Projects\Github\CodeGen-Core\CodeGen-Core\CodeGen\Templates\Views\IndexTemp.tt"
 }
             
             #line default
@@ -61,64 +69,34 @@ foreach (var prop in Config.PropertyNames){
             this.Write("            <th></th>\r\n        </tr>\r\n    </thead>\r\n    <tbody>\r\n        @foreach" +
                     " (var item in Model)\r\n        {\r\n          <tr>\r\n\t\t\t<td>@i</td>\r\n");
             
-            #line 30 "E:\Projects\Github\CodeGen-Core\CodeGen-Core\CodeGen\Templates\Views\IndexTemp.tt"
+            #line 32 "E:\Projects\Github\CodeGen-Core\CodeGen-Core\CodeGen\Templates\Views\IndexTemp.tt"
 foreach (var prop in Config.PropertyNames){
             
             #line default
             #line hidden
             this.Write("\t\t\t<td>@item.");
             
-            #line 31 "E:\Projects\Github\CodeGen-Core\CodeGen-Core\CodeGen\Templates\Views\IndexTemp.tt"
+            #line 33 "E:\Projects\Github\CodeGen-Core\CodeGen-Core\CodeGen\Templates\Views\IndexTemp.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(prop));
             
             #line default
             #line hidden
             this.Write("</td>\r\n");
             
-            #line 32 "E:\Projects\Github\CodeGen-Core\CodeGen-Core\CodeGen\Templates\Views\IndexTemp.tt"
+            #line 34 "E:\Projects\Github\CodeGen-Core\CodeGen-Core\CodeGen\Templates\Views\IndexTemp.tt"
 }
             
             #line default
             #line hidden
             this.Write("          \r\n\r\n");
             
-            #line 34 "E:\Projects\Github\CodeGen-Core\CodeGen-Core\CodeGen\Templates\Views\IndexTemp.tt"
+            #line 36 "E:\Projects\Github\CodeGen-Core\CodeGen-Core\CodeGen\Templates\Views\IndexTemp.tt"
 if(!String.IsNullOrEmpty(Config.Area)) { 
             
             #line default
             #line hidden
             this.Write("\t\t<td>\r\n\t\t\t<a asp-action=\"details\" asp-route-id=\"@item.Id\" asp-controller=\"");
             
-            #line 36 "E:\Projects\Github\CodeGen-Core\CodeGen-Core\CodeGen\Templates\Views\IndexTemp.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Config.Model));
-            
-            #line default
-            #line hidden
-            this.Write("\" asp-area=\"");
-            
-            #line 36 "E:\Projects\Github\CodeGen-Core\CodeGen-Core\CodeGen\Templates\Views\IndexTemp.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Config.Area));
-            
-            #line default
-            #line hidden
-            this.Write("\" class=\"btn btn-default \"><i class=\"fa fa-file-text-o\"></i>نمایش</a>            " +
-                    "        \r\n\t\t\t<a asp-action=\"edit\" asp-route-id=\"@item.Id\" asp-controller=\"");
-            
-            #line 37 "E:\Projects\Github\CodeGen-Core\CodeGen-Core\CodeGen\Templates\Views\IndexTemp.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Config.Model));
-            
-            #line default
-            #line hidden
-            this.Write("\" asp-area=\"");
-            
-            #line 37 "E:\Projects\Github\CodeGen-Core\CodeGen-Core\CodeGen\Templates\Views\IndexTemp.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Config.Area));
-            
-            #line default
-            #line hidden
-            this.Write("\" class=\"btn btn-primary\"><i class=\"fa fa-edit\"></i>ویرایش</a>\r\n\t\t\t<a asp-action=" +
-                    "\"delete\" asp-route-id=\"@item.Id\" asp-controller=\"");
-            
             #line 38 "E:\Projects\Github\CodeGen-Core\CodeGen-Core\CodeGen\Templates\Views\IndexTemp.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Config.Model));
             
@@ -131,39 +109,71 @@ if(!String.IsNullOrEmpty(Config.Area)) {
             
             #line default
             #line hidden
-            this.Write("\" class=\"btn btn-damger\"><i class=\"fa fa-remove\"></i>حذف</a>\r\n\t\t</td>\r\n");
+            this.Write("\" class=\"btn btn-default \"><i class=\"fa fa-file-text-o fa-fw\"></i>نمایش</a>      " +
+                    "              \r\n\t\t\t<a asp-action=\"edit\" asp-route-id=\"@item.Id\" asp-controller=\"" +
+                    "");
+            
+            #line 39 "E:\Projects\Github\CodeGen-Core\CodeGen-Core\CodeGen\Templates\Views\IndexTemp.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Config.Model));
+            
+            #line default
+            #line hidden
+            this.Write("\" asp-area=\"");
+            
+            #line 39 "E:\Projects\Github\CodeGen-Core\CodeGen-Core\CodeGen\Templates\Views\IndexTemp.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Config.Area));
+            
+            #line default
+            #line hidden
+            this.Write("\" class=\"btn btn-primary\"><i class=\"fa fa-edit fa-fw\"></i>ویرایش</a>\r\n\t\t\t<a asp-a" +
+                    "ction=\"delete\" asp-route-id=\"@item.Id\" asp-controller=\"");
             
             #line 40 "E:\Projects\Github\CodeGen-Core\CodeGen-Core\CodeGen\Templates\Views\IndexTemp.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Config.Model));
+            
+            #line default
+            #line hidden
+            this.Write("\" asp-area=\"");
+            
+            #line 40 "E:\Projects\Github\CodeGen-Core\CodeGen-Core\CodeGen\Templates\Views\IndexTemp.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Config.Area));
+            
+            #line default
+            #line hidden
+            this.Write("\" class=\"btn btn-damger\"><i class=\"fa fa-remove fa-fw\"></i>حذف</a>\r\n\t\t</td>\r\n");
+            
+            #line 42 "E:\Projects\Github\CodeGen-Core\CodeGen-Core\CodeGen\Templates\Views\IndexTemp.tt"
 } else {
             
             #line default
             #line hidden
             this.Write("\t\t<td>\r\n\t\t\t<a asp-action=\"details\" asp-route-id=\"@item.Id\" asp-controller=\"");
             
-            #line 42 "E:\Projects\Github\CodeGen-Core\CodeGen-Core\CodeGen\Templates\Views\IndexTemp.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Config.Model));
-            
-            #line default
-            #line hidden
-            this.Write("\" class=\"btn btn-default \"><i class=\"fa fa-file-text-o\"></i>نمایش</a>            " +
-                    "        \r\n\t\t\t<a asp-action=\"edit\" asp-route-id=\"@item.Id\" asp-controller=\"");
-            
-            #line 43 "E:\Projects\Github\CodeGen-Core\CodeGen-Core\CodeGen\Templates\Views\IndexTemp.tt"
-            this.Write(this.ToStringHelper.ToStringWithCulture(Config.Model));
-            
-            #line default
-            #line hidden
-            this.Write("\" class=\"btn btn-primary\"><i class=\"fa fa-edit\"></i>ویرایش</a>\r\n\t\t\t<a asp-action=" +
-                    "\"delete\" asp-route-id=\"@item.Id\" asp-controller=\"");
-            
             #line 44 "E:\Projects\Github\CodeGen-Core\CodeGen-Core\CodeGen\Templates\Views\IndexTemp.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Config.Model));
             
             #line default
             #line hidden
-            this.Write("\"  class=\"btn btn-damger\"><i class=\"fa fa-remove\"></i>حذف</a>\r\n\t\t</td>\r\n");
+            this.Write("\" class=\"btn btn-default \"><i class=\"fa fa-file-text-o fa-fw\"></i>نمایش</a>      " +
+                    "              \r\n\t\t\t<a asp-action=\"edit\" asp-route-id=\"@item.Id\" asp-controller=\"" +
+                    "");
+            
+            #line 45 "E:\Projects\Github\CodeGen-Core\CodeGen-Core\CodeGen\Templates\Views\IndexTemp.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Config.Model));
+            
+            #line default
+            #line hidden
+            this.Write("\" class=\"btn btn-primary\"><i class=\"fa fa-edit fa-fw\"></i>ویرایش</a>\r\n\t\t\t<a asp-a" +
+                    "ction=\"delete\" asp-route-id=\"@item.Id\" asp-controller=\"");
             
             #line 46 "E:\Projects\Github\CodeGen-Core\CodeGen-Core\CodeGen\Templates\Views\IndexTemp.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Config.Model));
+            
+            #line default
+            #line hidden
+            this.Write("\"  class=\"btn btn-damger\"><i class=\"fa fa-remove fa-fw\"></i>حذف</a>\r\n\t\t</td>\r\n");
+            
+            #line 48 "E:\Projects\Github\CodeGen-Core\CodeGen-Core\CodeGen\Templates\Views\IndexTemp.tt"
 } 
             
             #line default

@@ -12,6 +12,8 @@
 <h2>@ViewBag.Title</h2>
 <hr>
 
+<a asp-action="create" asp-controller="<#=Config.Model #>" class="btn btn-primary " style="width:200px;"><i class="fa fa-plus fa-fw"></i>جدید</a>                    
+
 <table class="table">
     <thead>
         <tr>
@@ -33,15 +35,15 @@
 
 <#if(!String.IsNullOrEmpty(Config.Area)) { #>
 		<td>
-			<a asp-action="details" asp-route-id="@item.Id" asp-controller="<#=Config.Model #>" asp-area="<#=Config.Area #>" class="btn btn-default "><i class="fa fa-file-text-o"></i>نمایش</a>                    
-			<a asp-action="edit" asp-route-id="@item.Id" asp-controller="<#=Config.Model #>" asp-area="<#=Config.Area #>" class="btn btn-primary"><i class="fa fa-edit"></i>ویرایش</a>
-			<a asp-action="delete" asp-route-id="@item.Id" asp-controller="<#=Config.Model #>" asp-area="<#=Config.Area #>" class="btn btn-damger"><i class="fa fa-remove"></i>حذف</a>
+			<a asp-action="details" asp-route-id="@item.Id" asp-controller="<#=Config.Model #>" asp-area="<#=Config.Area #>" class="btn btn-default "><i class="fa fa-file-text-o fa-fw"></i>نمایش</a>                    
+			<a asp-action="edit" asp-route-id="@item.Id" asp-controller="<#=Config.Model #>" asp-area="<#=Config.Area #>" class="btn btn-primary"><i class="fa fa-edit fa-fw"></i>ویرایش</a>
+			<a asp-action="delete" asp-route-id="@item.Id" asp-controller="<#=Config.Model #>" asp-area="<#=Config.Area #>" class="btn btn-damger"><i class="fa fa-remove fa-fw"></i>حذف</a>
 		</td>
 <#} else {#>
 		<td>
-			<a asp-action="details" asp-route-id="@item.Id" asp-controller="<#=Config.Model #>" class="btn btn-default "><i class="fa fa-file-text-o"></i>نمایش</a>                    
-			<a asp-action="edit" asp-route-id="@item.Id" asp-controller="<#=Config.Model #>" class="btn btn-primary"><i class="fa fa-edit"></i>ویرایش</a>
-			<a asp-action="delete" asp-route-id="@item.Id" asp-controller="<#=Config.Model #>"  class="btn btn-damger"><i class="fa fa-remove"></i>حذف</a>
+			<a asp-action="details" asp-route-id="@item.Id" asp-controller="<#=Config.Model #>" class="btn btn-default "><i class="fa fa-file-text-o fa-fw"></i>نمایش</a>                    
+			<a asp-action="edit" asp-route-id="@item.Id" asp-controller="<#=Config.Model #>" class="btn btn-primary"><i class="fa fa-edit fa-fw"></i>ویرایش</a>
+			<a asp-action="delete" asp-route-id="@item.Id" asp-controller="<#=Config.Model #>"  class="btn btn-damger"><i class="fa fa-remove fa-fw"></i>حذف</a>
 		</td>
 <#} #>
 		</tr> i++;

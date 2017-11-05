@@ -31,7 +31,7 @@
             <i class="fa fa-check"></i>
             ثبت
         </button>
-        <a href="@Url.Action("Index")" class="btn btn-default">
+        <a asp-action="index" class="btn btn-default">
             برگشت
             <i class="fa fa-arrow-rigth"></i>
         </a>
@@ -39,5 +39,7 @@
 }
 
 @section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
+       <script src="~/lib/jquery-validate/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.bootstrap.min.js"></script>
 }

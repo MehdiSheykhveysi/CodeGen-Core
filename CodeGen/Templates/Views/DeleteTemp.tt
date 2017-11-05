@@ -42,9 +42,9 @@
     <div class="form-group">
         <button type="submit" class="btn btn-danger text-right" style="width:100px">
             <i class="fa fa-cross"></i>
-            ثبت
+            حذف
         </button>
-        <a href="@Url.Action("Index")" class="btn btn-default">
+        <a  asp-action="index" class="btn btn-default">
 
             برگشت
             <i class="glyphicon glyphicon-circle-arrow-left"></i>
