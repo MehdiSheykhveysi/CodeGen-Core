@@ -28,31 +28,31 @@ namespace CodeGen.Templates
         /// </summary>
         public virtual string TransformText()
         {
-            this.Write("using Portal.Core.Base;\r\nusing Portal.Core.Models;\r\nusing System.Linq;\r\n\r\nnamespa" +
-                    "ce Portal.Repository\r\n{\r\n    public class ");
+            this.Write("\r\nusing Portal.Core.Base;\r\nusing Portal.Core.Models;\r\nusing Portal.Data;\r\nusing S" +
+                    "ystem.Linq;\r\n\r\nnamespace Portal.Repository\r\n{\r\n    public class ");
             
-            #line 12 "E:\Projects\Github\CodeGen-Core\CodeGen-Core\CodeGen\Templates\RepositoryTemp.tt"
+            #line 14 "E:\Projects\Github\CodeGen-Core\CodeGen-Core\CodeGen\Templates\RepositoryTemp.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Config.Model));
             
             #line default
             #line hidden
             this.Write("Repository : Repository<");
             
-            #line 12 "E:\Projects\Github\CodeGen-Core\CodeGen-Core\CodeGen\Templates\RepositoryTemp.tt"
+            #line 14 "E:\Projects\Github\CodeGen-Core\CodeGen-Core\CodeGen\Templates\RepositoryTemp.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Config.Model));
             
             #line default
             #line hidden
             this.Write(">, I");
             
-            #line 12 "E:\Projects\Github\CodeGen-Core\CodeGen-Core\CodeGen\Templates\RepositoryTemp.tt"
+            #line 14 "E:\Projects\Github\CodeGen-Core\CodeGen-Core\CodeGen\Templates\RepositoryTemp.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Config.Model));
             
             #line default
             #line hidden
             this.Write("Repository\r\n    {\r\n        public ");
             
-            #line 14 "E:\Projects\Github\CodeGen-Core\CodeGen-Core\CodeGen\Templates\RepositoryTemp.tt"
+            #line 16 "E:\Projects\Github\CodeGen-Core\CodeGen-Core\CodeGen\Templates\RepositoryTemp.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Config.Model));
             
             #line default

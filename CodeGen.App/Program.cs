@@ -42,7 +42,7 @@ namespace CodeGen.App
             else
             {
                 Config.ControllerPath = new System.IO.DirectoryInfo(Config.ModelsPath).Parent.Parent.Parent.FullName + "\\Portal.Web\\Areas\\" + Config.Area + "\\Controllers\\";
-                Config.ViewsPath = new System.IO.DirectoryInfo(Config.ModelsPath).Parent.Parent.Parent.FullName + "\\Portal.Web\\" + Config.Area + "\\Views\\" + Config.Model + "\\";
+                Config.ViewsPath = new System.IO.DirectoryInfo(Config.ModelsPath).Parent.Parent.Parent.FullName + "\\Portal.Web\\Areas\\" + Config.Area + "\\Views\\" + Config.Model + "\\";
             }
 
             var viewsDir = new System.IO.DirectoryInfo(Config.ViewsPath);

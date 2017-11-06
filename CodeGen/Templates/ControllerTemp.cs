@@ -59,58 +59,79 @@ if(!String.IsNullOrEmpty(Config.Area)) {
             
             #line default
             #line hidden
-            this.Write("\r\n{\r\n\r\n    public class ");
+            this.Write("\r\n{\r\n\r\n");
             
             #line 24 "E:\Projects\Github\CodeGen-Core\CodeGen-Core\CodeGen\Templates\ControllerTemp.tt"
+if(!String.IsNullOrEmpty(Config.Area)) { 
+            
+            #line default
+            #line hidden
+            this.Write("\r\n[Area(\"");
+            
+            #line 26 "E:\Projects\Github\CodeGen-Core\CodeGen-Core\CodeGen\Templates\ControllerTemp.tt"
+            this.Write(this.ToStringHelper.ToStringWithCulture(Config.Area));
+            
+            #line default
+            #line hidden
+            this.Write("\")]\r\n\r\n");
+            
+            #line 28 "E:\Projects\Github\CodeGen-Core\CodeGen-Core\CodeGen\Templates\ControllerTemp.tt"
+} 
+            
+            #line default
+            #line hidden
+            this.Write("\r\n    public class ");
+            
+            #line 30 "E:\Projects\Github\CodeGen-Core\CodeGen-Core\CodeGen\Templates\ControllerTemp.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Config.Model));
             
             #line default
             #line hidden
             this.Write("Controller : UserControllerBase\r\n    {\r\n        readonly I");
             
-            #line 26 "E:\Projects\Github\CodeGen-Core\CodeGen-Core\CodeGen\Templates\ControllerTemp.tt"
+            #line 32 "E:\Projects\Github\CodeGen-Core\CodeGen-Core\CodeGen\Templates\ControllerTemp.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Config.Model));
             
             #line default
             #line hidden
             this.Write("Service _");
             
-            #line 26 "E:\Projects\Github\CodeGen-Core\CodeGen-Core\CodeGen\Templates\ControllerTemp.tt"
+            #line 32 "E:\Projects\Github\CodeGen-Core\CodeGen-Core\CodeGen\Templates\ControllerTemp.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Config.ModelLower));
             
             #line default
             #line hidden
             this.Write("Service;\r\n        public ");
             
-            #line 27 "E:\Projects\Github\CodeGen-Core\CodeGen-Core\CodeGen\Templates\ControllerTemp.tt"
+            #line 33 "E:\Projects\Github\CodeGen-Core\CodeGen-Core\CodeGen\Templates\ControllerTemp.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Config.Model));
             
             #line default
             #line hidden
             this.Write("Controller(I");
             
-            #line 27 "E:\Projects\Github\CodeGen-Core\CodeGen-Core\CodeGen\Templates\ControllerTemp.tt"
+            #line 33 "E:\Projects\Github\CodeGen-Core\CodeGen-Core\CodeGen\Templates\ControllerTemp.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Config.Model));
             
             #line default
             #line hidden
             this.Write("Service ");
             
-            #line 27 "E:\Projects\Github\CodeGen-Core\CodeGen-Core\CodeGen\Templates\ControllerTemp.tt"
+            #line 33 "E:\Projects\Github\CodeGen-Core\CodeGen-Core\CodeGen\Templates\ControllerTemp.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Config.ModelLower));
             
             #line default
             #line hidden
             this.Write("Service)\r\n        {\r\n            _");
             
-            #line 29 "E:\Projects\Github\CodeGen-Core\CodeGen-Core\CodeGen\Templates\ControllerTemp.tt"
+            #line 35 "E:\Projects\Github\CodeGen-Core\CodeGen-Core\CodeGen\Templates\ControllerTemp.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Config.ModelLower));
             
             #line default
             #line hidden
             this.Write("Service = ");
             
-            #line 29 "E:\Projects\Github\CodeGen-Core\CodeGen-Core\CodeGen\Templates\ControllerTemp.tt"
+            #line 35 "E:\Projects\Github\CodeGen-Core\CodeGen-Core\CodeGen\Templates\ControllerTemp.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Config.ModelLower));
             
             #line default
@@ -118,7 +139,7 @@ if(!String.IsNullOrEmpty(Config.Area)) {
             this.Write("Service;\r\n        }\r\n        public virtual IActionResult Index()\r\n        {\r\n   " +
                     "         var model = _");
             
-            #line 33 "E:\Projects\Github\CodeGen-Core\CodeGen-Core\CodeGen\Templates\ControllerTemp.tt"
+            #line 39 "E:\Projects\Github\CodeGen-Core\CodeGen-Core\CodeGen\Templates\ControllerTemp.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Config.ModelLower));
             
             #line default
@@ -138,14 +159,14 @@ if(!String.IsNullOrEmpty(Config.Area)) {
 		[ValidateAntiForgeryToken]
         public virtual IActionResult Create(");
             
-            #line 46 "E:\Projects\Github\CodeGen-Core\CodeGen-Core\CodeGen\Templates\ControllerTemp.tt"
+            #line 52 "E:\Projects\Github\CodeGen-Core\CodeGen-Core\CodeGen\Templates\ControllerTemp.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Config.Model));
             
             #line default
             #line hidden
             this.Write("AddModel model)\r\n        {\r\n            _");
             
-            #line 48 "E:\Projects\Github\CodeGen-Core\CodeGen-Core\CodeGen\Templates\ControllerTemp.tt"
+            #line 54 "E:\Projects\Github\CodeGen-Core\CodeGen-Core\CodeGen\Templates\ControllerTemp.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Config.ModelLower));
             
             #line default
@@ -154,7 +175,7 @@ if(!String.IsNullOrEmpty(Config.Area)) {
                     "    }\r\n\r\n        [HttpGet]\r\n        public virtual IActionResult Details(int id)" +
                     "\r\n        {\r\n            var model = _");
             
-            #line 55 "E:\Projects\Github\CodeGen-Core\CodeGen-Core\CodeGen\Templates\ControllerTemp.tt"
+            #line 61 "E:\Projects\Github\CodeGen-Core\CodeGen-Core\CodeGen\Templates\ControllerTemp.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Config.ModelLower));
             
             #line default
@@ -163,7 +184,7 @@ if(!String.IsNullOrEmpty(Config.Area)) {
                     "\r\n        public virtual IActionResult Edit(int id)\r\n        {\r\n            var " +
                     "model = _");
             
-            #line 62 "E:\Projects\Github\CodeGen-Core\CodeGen-Core\CodeGen\Templates\ControllerTemp.tt"
+            #line 68 "E:\Projects\Github\CodeGen-Core\CodeGen-Core\CodeGen\Templates\ControllerTemp.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Config.ModelLower));
             
             #line default
@@ -171,14 +192,14 @@ if(!String.IsNullOrEmpty(Config.Area)) {
             this.Write("Service.Get(id);\r\n            return View(model);\r\n        }\r\n\r\n        [HttpPost" +
                     "]\r\n\t\t[ValidateAntiForgeryToken]\r\n        public virtual IActionResult Edit(");
             
-            #line 68 "E:\Projects\Github\CodeGen-Core\CodeGen-Core\CodeGen\Templates\ControllerTemp.tt"
+            #line 74 "E:\Projects\Github\CodeGen-Core\CodeGen-Core\CodeGen\Templates\ControllerTemp.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Config.Model));
             
             #line default
             #line hidden
             this.Write("ViewModel model)\r\n        {\r\n            _");
             
-            #line 70 "E:\Projects\Github\CodeGen-Core\CodeGen-Core\CodeGen\Templates\ControllerTemp.tt"
+            #line 76 "E:\Projects\Github\CodeGen-Core\CodeGen-Core\CodeGen\Templates\ControllerTemp.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Config.ModelLower));
             
             #line default
@@ -187,7 +208,7 @@ if(!String.IsNullOrEmpty(Config.Area)) {
                     "    }\r\n\r\n        [HttpGet]\r\n        public virtual IActionResult Delete(int id)\r" +
                     "\n        {\r\n            var model = _");
             
-            #line 77 "E:\Projects\Github\CodeGen-Core\CodeGen-Core\CodeGen\Templates\ControllerTemp.tt"
+            #line 83 "E:\Projects\Github\CodeGen-Core\CodeGen-Core\CodeGen\Templates\ControllerTemp.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Config.ModelLower));
             
             #line default
@@ -195,14 +216,14 @@ if(!String.IsNullOrEmpty(Config.Area)) {
             this.Write("Service.Get(id);\r\n            return View(model);\r\n        }\r\n\r\n        [HttpPost" +
                     "]\r\n\t\t[ValidateAntiForgeryToken]\r\n        public virtual IActionResult Delete(");
             
-            #line 83 "E:\Projects\Github\CodeGen-Core\CodeGen-Core\CodeGen\Templates\ControllerTemp.tt"
+            #line 89 "E:\Projects\Github\CodeGen-Core\CodeGen-Core\CodeGen\Templates\ControllerTemp.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Config.Model));
             
             #line default
             #line hidden
             this.Write("ViewModel model)\r\n        {\r\n            _");
             
-            #line 85 "E:\Projects\Github\CodeGen-Core\CodeGen-Core\CodeGen\Templates\ControllerTemp.tt"
+            #line 91 "E:\Projects\Github\CodeGen-Core\CodeGen-Core\CodeGen\Templates\ControllerTemp.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(Config.ModelLower));
             
             #line default

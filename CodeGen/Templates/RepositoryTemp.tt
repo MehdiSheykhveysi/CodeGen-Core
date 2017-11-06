@@ -3,8 +3,10 @@
 <#@ import namespace="System.Linq" #>
 <#@ import namespace="System.Text" #>
 <#@ import namespace="System.Collections.Generic" #>
+
 using Portal.Core.Base;
 using Portal.Core.Models;
+using Portal.Data;
 using System.Linq;
 
 namespace Portal.Repository

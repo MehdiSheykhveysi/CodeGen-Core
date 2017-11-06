@@ -21,6 +21,12 @@ namespace Portal.Web.Controllers
 
 {
 
+<#if(!String.IsNullOrEmpty(Config.Area)) { #>
+
+[Area("<#=Config.Area #>")]
+
+<#} #>
+
     public class <#= Config.Model #>Controller : UserControllerBase
     {
         readonly I<#= Config.Model #>Service _<#= Config.ModelLower #>Service;
