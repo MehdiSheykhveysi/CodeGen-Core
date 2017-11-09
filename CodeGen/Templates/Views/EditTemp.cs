@@ -35,52 +35,40 @@ namespace CodeGen.Templates.Views
             
             #line default
             #line hidden
-            this.Write(@"ViewModel
-
-@{
-    ViewBag.Title = ""ویرایش"";
-}
-
-<h2>@ViewBag.Title</h2>
-<hr />
-
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-	@Html.HiddenFor(model => model.Id)
-    @Html.ValidationSummary(true, """", new { @class = ""text-danger"" })
-
-");
+            this.Write("ViewModel\r\n\r\n@{\r\n    ViewBag.Title = \"ویرایش\";\r\n}\r\n\r\n<h2>@ViewBag.Title</h2>\r\n<hr" +
+                    " />\r\n\r\n<form method=\"post\" asp-antiforgery=\"true\">\r\n\t<div asp-validation-summary" +
+                    "=\"ModelOnly\" class=\"text-danger\"></div>\r\n\t<input asp-for=\"Id\" type=\"hidden\"/>\r\n\r" +
+                    "\n");
             
-            #line 21 "E:\Projects\Github\CodeGen-Core\CodeGen-Core\CodeGen\Templates\Views\EditTemp.tt"
+            #line 19 "E:\Projects\Github\CodeGen-Core\CodeGen-Core\CodeGen\Templates\Views\EditTemp.tt"
 foreach (var prop in Config.PropertyNames.Where(p=>p !="Id" && p!="TimeCreated")){
             
             #line default
             #line hidden
-            this.Write("  <div class=\"form-group\">\r\n\t\t<label asp-for=\"");
+            this.Write("\t<div class=\"form-group\">\r\n\t\t<label asp-for=\"");
             
-            #line 23 "E:\Projects\Github\CodeGen-Core\CodeGen-Core\CodeGen\Templates\Views\EditTemp.tt"
+            #line 21 "E:\Projects\Github\CodeGen-Core\CodeGen-Core\CodeGen\Templates\Views\EditTemp.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(prop));
             
             #line default
             #line hidden
             this.Write("\" class=\"control-label\"></label>\r\n        <textarea asp-for=\"");
             
-            #line 24 "E:\Projects\Github\CodeGen-Core\CodeGen-Core\CodeGen\Templates\Views\EditTemp.tt"
+            #line 22 "E:\Projects\Github\CodeGen-Core\CodeGen-Core\CodeGen\Templates\Views\EditTemp.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(prop));
             
             #line default
             #line hidden
             this.Write("\" class=\"form-control\"></textarea>\r\n        <span asp-validation-for=\"");
             
-            #line 25 "E:\Projects\Github\CodeGen-Core\CodeGen-Core\CodeGen\Templates\Views\EditTemp.tt"
+            #line 23 "E:\Projects\Github\CodeGen-Core\CodeGen-Core\CodeGen\Templates\Views\EditTemp.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(prop));
             
             #line default
             #line hidden
-            this.Write("\" class=\"text-danger\"></span>\r\n   </div>\r\n");
+            this.Write("\" class=\"text-danger\"></span>\r\n\t</div>\r\n");
             
-            #line 27 "E:\Projects\Github\CodeGen-Core\CodeGen-Core\CodeGen\Templates\Views\EditTemp.tt"
+            #line 25 "E:\Projects\Github\CodeGen-Core\CodeGen-Core\CodeGen\Templates\Views\EditTemp.tt"
 }
             
             #line default
@@ -97,7 +85,7 @@ foreach (var prop in Config.PropertyNames.Where(p=>p !="Id" && p!="TimeCreated")
             <i class=""fa fa-arrow-rigth""></i>
         </a>
     </div>
-}
+<from/>
 
 @section Scripts {
        <script src=""~/lib/jquery-validate/jquery.validate.min.js""></script>
