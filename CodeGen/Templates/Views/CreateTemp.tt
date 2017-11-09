@@ -12,16 +12,14 @@
 <h2>@ViewBag.Title</h2>
 <hr />
 
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+<form method="post" asp-antiforgery="true">
+	<div asp-validation-summary="ModelOnly" class="text-danger"></div>
 
 <#foreach (var prop in Config.PropertyNames.Where(p=>p !="Id" && p!="TimeCreated")){#>
-  <div class="form-group">
-        @Html.LabelFor(model => model.<#=prop #>, new { @class = "control-label" })
-        @Html.TextBoxFor(model => model.<#=prop #>, new { @class = "form-control" })
-        @Html.ValidationMessageFor(model => model.<#=prop #>, "", new { @class = "text-danger" })
+	<div class="form-group">
+      	<label asp-for="<#=prop #>" class="control-label"></label>
+        <textarea asp-for="<#=prop #>" class="form-control"></textarea>
+        <span asp-validation-for="<#=prop #>" class="text-danger"></span>
     </div>
 <#}#>  
 
@@ -35,7 +33,7 @@
             <i class="fa fa-arrow-rigth"></i>
         </a>
     </div>
-}
+<form/>
 
 @section Scripts {
       <script src="~/lib/jquery-validate/jquery.validate.min.js"></script>

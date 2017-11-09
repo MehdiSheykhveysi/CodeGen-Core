@@ -20,10 +20,10 @@
 
 <#foreach (var prop in Config.PropertyNames.Where(p=>p !="Id" && p!="TimeCreated")){#>
   <div class="form-group">
-        @Html.LabelFor(model => model.<#=prop #>, new { @class = "control-label" })
-        @Html.TextBoxFor(model => model.<#=prop #>, new { @class = "form-control" })
-        @Html.ValidationMessageFor(model => model.<#=prop #>, "", new { @class = "text-danger" })
-    </div>
+		<label asp-for="<#=prop #>" class="control-label"></label>
+        <textarea asp-for="<#=prop #>" class="form-control"></textarea>
+        <span asp-validation-for="<#=prop #>" class="text-danger"></span>
+   </div>
 <#}#>  
 
 <div class="form-group">
