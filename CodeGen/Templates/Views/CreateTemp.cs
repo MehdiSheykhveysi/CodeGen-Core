@@ -75,7 +75,7 @@ foreach (var prop in Config.PropertyNames.Where(p=>p !="Id" && p!="TimeCreated")
             this.Write(@"  
 
 <div class=""form-group"">
-        <button type=""submit"" class=""btn btn-success text-right"" style=""width:100px"">
+        <button type=""submit"" class=""btn btn-success text-right"" style=""width:200px"">
             <i class=""fa fa-check""></i>
             ثبت
         </button>
