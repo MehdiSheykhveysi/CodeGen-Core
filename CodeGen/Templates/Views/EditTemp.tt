@@ -12,14 +12,14 @@
 <h2>@ViewBag.Title</h2>
 <hr />
 
-<form method="post" asp-antiforgery="true">
+<form method="post" asp-antiforgery="true" />
 	<div asp-validation-summary="ModelOnly" class="text-danger"></div>
 	<input asp-for="Id" type="hidden"/>
 
 <#foreach (var prop in Config.PropertyNames.Where(p=>p !="Id" && p!="TimeCreated")){#>
 	<div class="form-group">
 		<label asp-for="<#=prop #>" class="control-label"></label>
-        <textarea asp-for="<#=prop #>" class="form-control"></textarea>
+       <input asp-for="<#=prop #>" class="form-control" />
         <span asp-validation-for="<#=prop #>" class="text-danger"></span>
 	</div>
 <#}#>  
